@@ -45,6 +45,11 @@ int main()
         std::cout << "Introduzca la horas del empleado: " << IdEmpl[i] << std::endl;
         std::cin >> userHours;
         if (userHours > 0) { hours.push_back(userHours); }
+        else
+        {
+            std::cout << "Error en el sistema de horas, las horas no pueden ser menor que 0" << std::endl;
+            return 0;
+        }
 
         // El usuario introduce el horario facturado.
         std::cout << "Introduzca la tarifa en horas del empleado " << IdEmpl[i] << std::endl;
