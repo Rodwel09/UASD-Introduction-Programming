@@ -25,7 +25,7 @@ int main()
         int foodAmount = 0;
         int sumProm = 0;
         int maxFood = 0;
-        int minFood = 0;
+        int minFood = 9999999;
         for (int column = 0; column < COLUMNS; column++)
         {
             std::cout << "Dia #" << column + 1 << " Introduzca la cantidad de comida del Mono # " << row + 1 << std::endl;
@@ -62,6 +62,7 @@ int main()
         std::cout << "Promedio de mono #" << i + 1 << " --->" << prom[i] << std::endl;
         std::cout << "Cantidad mas alta de la semana ----> " << maxList[i] << std::endl;
         std::cout << "Cantidad minima de la semana ---->" << minList[i] << std::endl; 
+        std::cout << "---------------------------------->" << std::endl;
     }
     
 }
