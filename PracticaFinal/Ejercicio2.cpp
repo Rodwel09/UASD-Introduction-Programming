@@ -13,22 +13,27 @@ std::vector<int> descendingOrder(std::vector<int> numbers)
     return numbers;
 }
 
-std::vector<int> ascendingOrder(std::vector<int> numbers)
+std::vector<int> ascendingOrder(std::vector<int> numbers, int lastPosition, int index = 0)
 {
-    int pivot = numbers.size() / 2;
+    int pivot = numbers[numbers.size() / 2];
 
-    for (int i = 0; i < numbers.size(); i++)
+    if (numbers[index] > numbers[pivot])
     {
-        if (numbers[i] > numbers[pivot])
-        {
-            int temp = numbers[i]; // variable temporal
-            numbers[i] = numbers[pivot];
-            numbers[pivot] = temp;
-        }
-
-        pivot--;
+        int temp = numbers[index]; // variable temporal
+        numbers[index] = numbers[lastPosition];
+        numbers[lastPosition] = temp;
     }
-    return numbers;
+
+    if (numbers[lastPosition] < numbers[pivot])
+    {
+        int temp = numbers[lastPosition]; // variable temporal
+        numbers[lastPosition] = numbers[index];
+        numbers[index] = temp;
+    }
+
+    if (lastPosition == 0) return numbers;
+    
+    return ascendingOrder(numbers, lastPosition - 1, index + 1);
 }
 
 int main()
@@ -60,7 +65,7 @@ int main()
         newNumbers = descendingOrder(allNumbers);
         break;
     case 'A':
-        newNumbers = ascendingOrder(allNumbers);
+        newNumbers = ascendingOrder(allNumbers, allNumbers.size() - 1);
         break;
     }
 
