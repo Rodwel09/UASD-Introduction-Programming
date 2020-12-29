@@ -12,7 +12,7 @@ int ManageList(int[], int);
 //void RecursionWay(int[], int, int);
 
 int main(){
-    int dataInt[] = {5,6,8,6,9,5,2,1,6,8,6};
+    int dataInt[] = {4,4,4,5,5,5,6,6,6};
     int modaNumber = ManageList(dataInt, sizeof(dataInt) / sizeof(dataInt[0]));
     std::cout << "El numero con mayor encontrado con mayor frecuencia en el arreglo es: " << modaNumber << std::endl;
     return 0;
