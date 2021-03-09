@@ -8,39 +8,52 @@
     Rodwel Polanco Martinez - 100500328
 */
 
-std::vector<int> descendingOrder(std::vector<int> numbers)
+std::vector<int> numbers;
+
+void descendingOrder()
 {
-    return numbers;
+    bool swap;
+    int temp;
+
+    do
+    {
+        swap = false;
+        for (int indice = 0; numbers.size(); indice++)
+        {
+            if (numbers[indice] < numbers[indice + 1])
+            {
+                temp = numbers[indice];
+                numbers[indice] = numbers[indice + 1];
+                numbers[indice + 1] = temp;
+                swap = true;
+            }
+        }
+    } while (swap);
 }
 
-std::vector<int> ascendingOrder(std::vector<int> numbers, int lastPosition, int index = 0)
+void ascendingOrder()
 {
-    int pivot = numbers[numbers.size() / 2];
+    bool swap;
+    int temp;
 
-    if (numbers[index] > numbers[pivot])
+    do
     {
-        int temp = numbers[index]; // variable temporal
-        numbers[index] = numbers[lastPosition];
-        numbers[lastPosition] = temp;
-    }
-
-    if (numbers[lastPosition] < numbers[pivot])
-    {
-        int temp = numbers[lastPosition]; // variable temporal
-        numbers[lastPosition] = numbers[index];
-        numbers[index] = temp;
-    }
-
-    if (lastPosition == 0) return numbers;
-    
-    return ascendingOrder(numbers, lastPosition - 1, index + 1);
+        swap = false;
+        for (int indice = 0; numbers.size(); indice++)
+        {
+            if (numbers[indice] > numbers[indice + 1])
+            {
+                temp = numbers[indice];
+                numbers[indice] = numbers[indice + 1];
+                numbers[indice + 1] = temp;
+                swap = true;
+            }
+        }
+    } while (swap);
 }
 
 int main()
 {
-    std::vector<int> allNumbers;
-    std::vector<int> newNumbers;
-
     int amountToIntroduce;
     char decision;
 
@@ -53,7 +66,7 @@ int main()
         std::cout << "Introduzca el numero #" << i + 1 << std::endl;
         std::cin >> numberToIntroduce;
 
-        allNumbers.push_back(numberToIntroduce);
+        numbers.push_back(numberToIntroduce);
     }
     
     std::cout << "Como quiere ordernar los numeros? Ascendente: A Descendente: D" << std::endl;
@@ -62,16 +75,16 @@ int main()
     switch (decision)
     {
     case 'D':
-        newNumbers = descendingOrder(allNumbers);
+        descendingOrder();
         break;
     case 'A':
-        newNumbers = ascendingOrder(allNumbers, allNumbers.size() - 1);
+        ascendingOrder();
         break;
     }
 
-    for (int i = 0; i < newNumbers.size(); i++)
+    for (int i = 0; i < numbers.size(); i++)
     {
-        std::cout << newNumbers[i] << std::endl;
+        std::cout << numbers[i] << std::endl;
     }
     
 }
