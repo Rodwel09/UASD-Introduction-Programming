@@ -1,6 +1,7 @@
 #include "Class/Herencia/Son.h"
 
-int main(){
+int main()
+{
     // Setting the instances
     Grandpa grandpa;
     Father father;
