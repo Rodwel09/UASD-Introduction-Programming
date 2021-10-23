@@ -1,5 +1,10 @@
 #include <iostream>
 
+// PROGRAMA QUE IMPRIME SOY EXCELENTE PROGRAMANDO EN C++
+// HECHO POR: RODWEL POLANCO MARTINEZ - 100500328
+// FECHA: SEPTIEMBRE 26 9:38 PM
+// NOMBRE DEL PROGRAMA: TASK-LAB-1.CPP
+
 int main(){
     std::cout << "Hola estoy programando en c++";
 }

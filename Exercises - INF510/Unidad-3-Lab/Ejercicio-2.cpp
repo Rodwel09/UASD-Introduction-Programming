@@ -1,6 +1,14 @@
 #include <iostream>
 #include <string>
 
+/*
+    Programa que imprime el nombre y apellido propporcionado por el usuario.
+
+    Realizado por:
+    Rodwel Polanco Martinez - 100500328
+    Fecha: 
+    22/10/2021
+*/
 
 int main()
 {

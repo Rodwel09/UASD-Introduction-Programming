@@ -1,6 +1,13 @@
 #include <iostream>
 #include <string>
 
+/*
+Programa que lea un texto y identifique la cantidad de letras mayusculas, digitos,
+espacios, minusculas, alphanumericas.
+
+Realizado por Rodwel Polanco Martinez - 100500328. 
+Fecha: 22/10/2021
+*/
 
 int main()
 {

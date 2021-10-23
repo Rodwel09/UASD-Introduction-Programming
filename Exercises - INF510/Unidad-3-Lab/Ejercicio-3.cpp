@@ -1,6 +1,13 @@
 #include <iostream>
 #include <string>
 
+/*
+    Programa que simula un sistema de factura usando struct.
+
+    Realizado por: Rodwel Polanco Martinez - 100500328
+    Fecha: 22/10/2021
+*/
+
 struct Invoice
 {
     long factID;
