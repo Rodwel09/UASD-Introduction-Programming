@@ -1,5 +1,6 @@
 /*
     Programa que hace la simulacion del Juego, Piedra, Papel o Tijeras.
+    
     Creado por: Rodwel Polanco Martinez - 100500328
 */
 
@@ -9,16 +10,18 @@
 #include <time.h>
 #include <iostream>
 
+// Declaracion de las constantes
 const char PAPER = 'A';
 const char ROCK = 'P';
 const char SCCISOR = 'T';
 const char OUTGAME = 'S';
 
+// Declaracion de los strings cuando el usuario gana, empata o pierde.
 const std::string WIN_MSG = "El usuario a ganado la ronda.";
 const std::string LOSE_MSG = "El computador a ganado la ronda";
 const std::string TIE_MSG = "Ha habido un empate.";
 
-
+// Funcion que depliega el menu del juego
 void displayMenu(){
     std::cout << "Jugemos piedra, papel, tijeras. Seleccione una de las siguientes opciones" << std::endl;
     std::cout << "A --> Papel" << std::endl;
@@ -27,6 +30,7 @@ void displayMenu(){
     std::cout << "S ---> Para salir del juego" << std::endl;
 }
 
+// Funcion que toma el caracter del usuario
 char getUserDecision(){
     char decision;
     std::cin >> decision;
@@ -34,6 +38,7 @@ char getUserDecision(){
     return decision;
 }
 
+// Funcion toma un caracter random 
 char getComputerOption(){
     char allOptions[] = {'A', 'P', 'T'};
     srand(time(0));
@@ -41,6 +46,7 @@ char getComputerOption(){
     return allOptions[randIndex];
 }
 
+// Funcion que verifica los datos del usuario y del opciones del computador
 std::string checkOptions(char optionComputer, char userOptions){
     if (userOptions == 'S') return "False";
 
@@ -61,23 +67,24 @@ std::string checkOptions(char optionComputer, char userOptions){
     return "";
 }
 
+// Inicio del a funcion main (principal)
 int main(){
-    bool endLoop = false;
+    bool endLoop = false; // Variable del ciclo
     do
     {
-        displayMenu();
+        displayMenu(); // Llama la funcion display menu
         
-        char computerOptions = getComputerOption();
-        char userOption = getUserDecision();
+        char computerOptions = getComputerOption(); // Se optiene la caracter del computador
+        char userOption = getUserDecision(); // Se optiene el caracter del usuario
 
         std::string options = checkOptions(computerOptions, toupper(userOption)); // En vez de validar que solamente introduzca numeros en mayuscula es mas eficiente. Transformarlos a mayuscula directamente.
 
-        if(options == "False"){
-            endLoop = true;
+        if(options == "False"){ // Si las opciones retorna "Falsa"
+            endLoop = true; // Marca la variable endLoop verdadero
         }else{
-            std::cout << options << std::endl;
+            std::cout << options << std::endl; // Imprime el dato de la variable options
         }
-    } while (!endLoop);
+    } while (!endLoop); // Si en loop es falso, continua el loop.
 
     return 0;
 }
